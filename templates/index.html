@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="row">
-{% for pet in pets %}
+{% for pet in pets[::-1] %}
 <div class="col-12 col-sm-6 col-lg-4">
     <div class="card my-1">
         <img src="{{pet.photo_url}}" class="card-img-top" alt="...">
