@@ -16,3 +16,8 @@ app.config['SQLALCHEMY_ECHO'] = True
 
 connect_db(app)
 db.create_all()
+
+@app.route('/')
+def home():
+    pets = Pet.query.all()
+    return render_template('index.html', pets=pets)

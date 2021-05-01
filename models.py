@@ -12,7 +12,7 @@ def connect_db(app):
 class Pet(db.Model):
     """Pet."""
 
-    __tablename__ = "users"
+    __tablename__ = "pets"
 
     id = db.Column(
         db.Integer, 
@@ -25,9 +25,10 @@ class Pet(db.Model):
         db.Text, 
         nullable=False)
     photo_url = db.Column(
-        db.Text)
-    age = db.Integer(
-        db.Text)
+        db.Text,
+        default='/static/default_pet.png')
+    age = db.Column(
+        db.Integer)
     notes = db.Column(
         db.Text)
     available = db.Column(
@@ -36,16 +37,6 @@ class Pet(db.Model):
         default=True)
 
     def __repr__(self):
-        return '<User %r>' % self.username
+        return '<Pet %r>' % self.name
 
-# Create a single model, Pet. This models a pet potentially available for adoption:
-
-# id: auto-incrementing integer
-# name: text, required
-# species: text, required
-# photo_url: text, optional
-# age: integer, optional
-# notes: text, optional
-# available: true/false, required, should default to available
-# While setting up the project, add the Debug Toolbar.
 
