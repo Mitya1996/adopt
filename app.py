@@ -2,6 +2,7 @@ from flask import Flask, render_template, redirect, request, flash
 from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, Pet
 from forms import AddPetForm
+from verify_image import check_url
 
 app = Flask(__name__)
 
@@ -30,7 +31,7 @@ def new_pet():
         name = form.name.data
         species = form.species.data
         photo_url = form.photo_url.data
-        if photo_url == '':
+        if photo_url == '' or not check_url(photo_url):
             photo_url = None
         age = form.age.data
         if age == '':
