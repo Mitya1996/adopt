@@ -26,7 +26,7 @@ class Pet(db.Model):
         nullable=False)
     photo_url = db.Column(
         db.Text,
-        default='/static/default_pet.png')
+        default='./static/default_pet.png')
     age = db.Column(
         db.Integer)
     notes = db.Column(

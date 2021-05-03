@@ -13,7 +13,7 @@
         <h5 class="card-title">{{pet.name}}</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         <p class="fw-bold">{% if pet.available %}<span class="text-success">available</span>{% else %}<span class="text-danger">unavailable</span>{% endif %}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a href="/{{pet.id}}" class="btn btn-primary">View/Edit</a>
         </div>
     </div>
 </div>
