@@ -38,7 +38,8 @@ def new_pet():
         species = form.species.data
         photo_url = form.photo_url.data
         if photo_url and form.photo_file.data:
-            pass
+            flash('Photo Url or Photo Upload, but not both.')
+            return redirect('/new')
         if photo_url == '' or not check_url(photo_url):
             photo_url = None
         if form.photo_file.data:
@@ -72,8 +73,9 @@ def pet_read_update(id):
         name = form.name.data
         species = form.species.data
         photo_url = form.photo_url.data
-        # if photo_url and form.photo_file.data:
-        #     pass
+        if photo_url and form.photo_file.data:
+            flash('Photo Url or Photo Upload, but not both.')
+            return redirect(f'/{id}')
         if photo_url == '' or not check_url(photo_url):
             photo_url = './static/default_pet.png'
         if form.photo_file.data:

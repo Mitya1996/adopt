@@ -5,7 +5,7 @@
 {% block content %}
 
 
-<div class="row">
+<div class="row mb-5">
     <div class="col col-sm-3"><img class="img-fluid rounded" src="{{pet.photo_url}}" alt="pet-image"></div>
     <div class="col col-sm-9">
         <div class="h1">{{pet.name}}</div>
@@ -14,9 +14,9 @@
     </div>
 </div>
 
-<h2 class="mt-5">Edit Pet</h2>
+{% include 'flash-alerts.html' %}
 
-
+<h2>Edit Pet</h2>
 
 <form action="/{{pet.id}}" method="POST" enctype="multipart/form-data">
     {{ form.hidden_tag() }} <!--add type=hidden form fields -->
